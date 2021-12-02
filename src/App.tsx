@@ -134,7 +134,7 @@ interface DataType extends convert.ElementCompact {
           _text: string;
         };
         registry_date: {
-          _text: string;
+          _text: number;
         };
         name: {
           _text: string;
@@ -170,7 +170,7 @@ interface ParsedDataType extends convert.ElementCompact {
   status: string;
   eik_pik: string;
   registry_zdds: string;
-  registry_date: string;
+  registry_date: number;
   name: string;
   transliteration: string;
   legal_form: string;
@@ -210,7 +210,7 @@ export function App() {
       status: '',
       eik_pik: '',
       registry_zdds: '',
-      registry_date: '',
+      registry_date: 0,
       name: '',
       transliteration: '',
       legal_form: '',
@@ -233,6 +233,7 @@ export function App() {
     parsedData.managers = data.managers._text;
     parsedData.partners = data.partners._text;
     parsedData.capital = data.capital._text;
+    console.log(parsedData.registry_date, isNaN(parsedData.registry_date));
     return parsedData;
   });
 
